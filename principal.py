@@ -49,4 +49,14 @@ obj_api_autores.mostrar_lista_autores()
 # pop
 obj_api_autores.eliminar_autor(1)
 
+# extend
 obj_api_autores.extender_autores(lista_datos_autor)
+
+# index
+obj_api_autores.buscar_autor(["Samuel Perez", "28 años"])
+
+# count
+obj_api_autores.contar_autor(["Samuel Perez", "14/08/1995"])
+
+# mostrar final
+obj_api_autores.mostrar_lista_autores()
