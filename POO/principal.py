@@ -1,6 +1,6 @@
 from usuario import Usuario
 from numero import Numero
-from calculadora import Hacer_operaciones
+from calculadora import Calculadora
 
 # Crear una instancia de Usuario
 usuario1 = Usuario("Juan", 123)
@@ -18,8 +18,9 @@ numero2.mostrar_info()
 
 print("""-------------------------NUMERO-------------------------""")
 
-# Crear una instancia de Hacer_operaciones
-operacion1 = Hacer_operaciones(numero1=numero1, numero2=numero2)
+# Crear una instancia de Calculadorea
+operacion1 = Calculadora(numero1=numero1, numero2=numero2)
+
 # Realizar operaciones y mostrar resultados
 print(f"Suma: {operacion1.suma()}")
 print(f"Resta: {operacion1.resta()}")
@@ -30,8 +31,12 @@ print(f"División: {operacion1.division()}")
 operacion1.tomar_fecha("2024-06-01")
 operacion1.mostrar_fecha()
 
+print(""""----------OPERACIONES DE CALCULADORA  
+      
+      ------------""")
+
 # Guardar información en una tabla y mostrarla
-operacion1.guardar_info_tabla("Resultados de Operaciones")
+operacion1.acumulador_texto(usuario1)
 operacion1.mostrar_tabla()
 
-print(""""-------------------------CALCULADORA-------------------------""")
+print(""""---------------------ALMACENAMIENTO DE INFORMACION---------------------""")

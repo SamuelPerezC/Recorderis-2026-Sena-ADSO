@@ -1,7 +1,8 @@
-class Hacer_operaciones:
+class Calculadora:
     def __init__(self, numero1, numero2):
         self.numero1 = numero1
         self.numero2 = numero2
+        self.texto_tabla = ""
 
     def suma(self):
         return self.numero1.get_numero() + self.numero2.get_numero()
@@ -17,6 +18,8 @@ class Hacer_operaciones:
             return self.numero1.get_numero() / self.numero2.get_numero()    
         else:
             return "Error: No se puede dividir por cero"
+        
+            
     def mostrar_info(self):
         print(f"Numero 1: {self.numero1}")
         print(f"Numero 2: {self.numero2}")
@@ -33,13 +36,15 @@ class Hacer_operaciones:
         
     #-------------------------TOMAR FECHA-------------------------#
     
-    def guardar_info_tabla(self, tabla):
-        self.tabla = tabla  
+    def acumulador_texto(self, obj_usuario):
+        self.texto_tabla += f"     - Identificacion: {obj_usuario.id}\n"
+        self.texto_tabla +=f"      - Usuario: {obj_usuario.nombre}\n" 
         
     def get_tabla(self):
         return self.tabla   
     
     def mostrar_tabla(self):    
-        print(f"Tabla: {self.tabla}")
+        print("             |Historial almacenado|         ")
+        print(self.texto_tabla)
         
         
