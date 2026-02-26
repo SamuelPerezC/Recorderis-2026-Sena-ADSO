@@ -5,7 +5,6 @@ from usuario import Usuario
 from numero import Numero
 from calculadora import Calculadora
 
-
 # ===============================
 # INTERFAZ GRÁFICA
 # ===============================
@@ -17,8 +16,9 @@ tk.Label(ventana, text="CALCULADORA + TOMA DE INFORMACION", font=("Arial", 14, "
 
 
 #toma de informacion para los campos
-def calcular():
+def calcular(tipo_de_operacion):
     # 1️⃣ Obtener TODOS los datos
+    # el metodo debe tomar la informacion y de guaradarla y mostrarla en la tabla, que quede de forma acumulador
     nombre = entry_nombre.get()
     cedula = entry_cedula.get()
     valor1 = entry_numero1.get()
@@ -36,13 +36,17 @@ def calcular():
     # 4️⃣ Crear calculadora
     operacion = Calculadora(numero1, numero2)
 
-    # 5️⃣ Ejecutar operación
-    resultado = operacion.suma()
-    resultado = operacion.resta()
+    #CONDICIONAL PARA ESCOGER EL TIPO DE OPERACION
+    if tipo_de_operacion == "suma":
+        resultado = operacion.suma()
+        entry_resultado.delete(0, tk.END)
+        entry_resultado.insert(0, resultado)
 
-    # 6️⃣ Mostrar resultado
-    entry_resultado.delete(0, tk.END)
-    entry_resultado.insert(0, resultado)
+    elif tipo_de_operacion == "resta":
+        resultado = operacion.resta()
+        entry_resultado.delete(0, tk.END)
+        entry_resultado.insert(0, resultado)
+        
 
 #CREAMOS LOS CAMPOS DE TOMA DE INFORMACION
 tk.Label(ventana,text="Nombre").pack()
@@ -61,59 +65,27 @@ tk.Label(ventana,text="numero 2").pack()
 entry_numero2 = tk.Entry(ventana)
 entry_numero2.pack()
 
-tk.Label(ventana,text="Resultado para SUMA").pack()
+tk.Label(ventana,text="CALCULO TIPO DE OPERACION").pack()
 entry_resultado = tk.Entry(ventana)
 entry_resultado.pack()
 
-tk.Label(ventana,text="Resultado para RESTA").pack()
-entry_resta = tk.Entry(ventana)
-entry_resta.pack()
+#se utiliza para crear la tala, estoy llamando a tabla_texto del codigo calculadora.py
+tabla_texto = tk.Text(ventana, height=10, width=40)
+tabla_texto.pack()
+
+# tk.Label(ventana,text="Resultado para RESTA").pack()
+# entry_resta = tk.Entry(ventana)
+# entry_resta.pack()
 
 
 #Botones
-tk.Button(ventana, text="Calcular", command=calcular, bg="green", fg="white").pack(pady=5)
+tk.Button(ventana, text="Calcular Suma", command=lambda: calcular("suma"), bg="green", fg="white").pack(pady=5)
+
+tk.Button(ventana, text="Calcular Resta", command=lambda: calcular("resta"), bg="blue", fg="white").pack(pady=5)
+
+tk.Button(ventana, text="Mostrar Historial", command=mostrar_historial,bg="orange", fg="white").pack(pady=5)
+
+tk.Button(ventana, text="Guardar en Historial",command=guardar_en_historial, bg="purple", fg="white").pack(pady=5)
 
 
 ventana.mainloop()
-
-
-
-
-# # Crear una instancia de Usuario
-# usuario1 = Usuario("Juan", 123)
-# # Mostrar la información del usuario
-# usuario1.mostrar_info()
-
-# print("""--------------------------USUARIO-------------------------""")
-
-# # Crear una instancia de Numero
-# numero1 = Numero(10)
-# numero2 = Numero(5)
-# # Mostrar la información del número
-# numero1.mostrar_info()
-# numero2.mostrar_info()
-
-# print("""-------------------------NUMERO-------------------------""")
-
-# # Crear una instancia de Calculadorea
-# operacion1 = Calculadora(numero1=numero1, numero2=numero2)
-
-# # Realizar operaciones y mostrar resultados
-# print(f"Suma: {operacion1.suma()}")
-# print(f"Resta: {operacion1.resta()}")
-# print(f"Multiplicación: {operacion1.multiplicacion()}")
-# print(f"División: {operacion1.division()}")
-
-# # Tomar una fecha y mostrarla
-# operacion1.tomar_fecha("2024-06-01")
-# operacion1.mostrar_fecha()
-
-# print(""""----------OPERACIONES DE CALCULADORA  
-      
-#       ------------""")
-
-# # Guardar información en una tabla y mostrarla
-# operacion1.acumulador_texto(usuario1)
-# operacion1.mostrar_tabla()
-
-# print(""""---------------------ALMACENAMIENTO DE INFORMACION---------------------""")
