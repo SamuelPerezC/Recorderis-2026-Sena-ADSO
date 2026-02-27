@@ -1,0 +1,3 @@
+Los criterios de aceptación en una historia de usuario son condiciones específicas, objetivas y medibles que debe cumplir una funcionalidad para ser considerada terminada y aceptada por el cliente o Product Owner. Actúan como un "checklist" para definir el alcance, asegurar la calidad, reducir la ambigüedad y facilitar las pruebas de aceptación.
+
+
