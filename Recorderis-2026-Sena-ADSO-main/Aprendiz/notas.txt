@@ -1,8 +1,0 @@
-1. Crear la Clase
-2. Crear el constructor
-3. Crear los atributos de la Clase
-4. Crar los metodos (metodos de encapsulamiento) -metodos (responsabilidades)
-#------------------ITEMS PARA CODIGO PRINCIPAL--------------#
-5. Llamar al objeto
-6. Llamar metodos (parametros - argumentos)
-7. Metodo retorta --> almacenamiento de datos
